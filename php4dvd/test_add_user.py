@@ -18,44 +18,6 @@ class Untitled3(unittest.TestCase):
     
     def test_untitled3(self):
         driver = self.driver
-# -*- coding: utf-8 -*-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
-
-class Untitled3(unittest.TestCase):
-    def setUp(self):
-        self.driver = webdriver.Firefox()
-        self.driver.implicitly_wait(30)
-        self.base_url = "http://localhost/"
-        self.verificationErrors = []
-        self.accept_next_alert = True
-    
-    def test_untitled3(self):
-        driver = self.driver
-# -*- coding: utf-8 -*-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
-
-class Untitled3(unittest.TestCase):
-    def setUp(self):
-        self.driver = webdriver.Firefox()
-        self.driver.implicitly_wait(30)
-        self.base_url = "http://localhost/"
-        self.verificationErrors = []
-        self.accept_next_alert = True
-    
-    def test_untitled3(self):
-        driver = self.driver
         driver.get(self.base_url + "/php4dvd/")
         driver.find_element_by_id("username").clear()
         driver.find_element_by_id("username").send_keys("admin")
@@ -63,8 +25,8 @@ class Untitled3(unittest.TestCase):
         driver.find_element_by_name("password").send_keys("admin")
         driver.find_element_by_name("submit").click()
         driver.find_element_by_link_text("User management").click()
-	new_username = "Laura_"
-	new_username = new_username + datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        new_username = "Laura_"
+        new_username = new_username + datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         driver.find_element_by_id("username").clear()
         driver.find_element_by_id("username").send_keys(new_username)
         driver.find_element_by_name("email").clear()
