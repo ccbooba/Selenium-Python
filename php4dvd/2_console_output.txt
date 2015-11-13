@@ -1,0 +1,42 @@
+Started by user anonymous
+Building in workspace C:\Users\Admin\.jenkins\jobs\python_fIrefox_tests\workspace
+ > C:\Users\Admin\AppData\Local\Programs\Git\bin\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Users\Admin\AppData\Local\Programs\Git\bin\git.exe config remote.origin.url https://github.com/ccbooba/Selenium-Python/ # timeout=10
+Fetching upstream changes from https://github.com/ccbooba/Selenium-Python/
+ > C:\Users\Admin\AppData\Local\Programs\Git\bin\git.exe --version # timeout=10
+ > C:\Users\Admin\AppData\Local\Programs\Git\bin\git.exe -c core.askpass=true fetch --tags --progress https://github.com/ccbooba/Selenium-Python/ +refs/heads/*:refs/remotes/origin/*
+ > C:\Users\Admin\AppData\Local\Programs\Git\bin\git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > C:\Users\Admin\AppData\Local\Programs\Git\bin\git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision ff2c61e9917304f4fa4beea756b837bcde2b3169 (refs/remotes/origin/master)
+ > C:\Users\Admin\AppData\Local\Programs\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Users\Admin\AppData\Local\Programs\Git\bin\git.exe checkout -f ff2c61e9917304f4fa4beea756b837bcde2b3169
+ > C:\Users\Admin\AppData\Local\Programs\Git\bin\git.exe rev-list ff2c61e9917304f4fa4beea756b837bcde2b3169 # timeout=10
+[workspace] $ cmd /c call C:\Users\Admin\AppData\Local\Temp\hudson5730119375230570225.bat
+
+C:\Users\Admin\.jenkins\jobs\python_fIrefox_tests\workspace>virtualenv ENV 
+New python executable in ENV\Scripts\python.exe
+Installing setuptools, pip, wheel...done.
+
+C:\Users\Admin\.jenkins\jobs\python_fIrefox_tests\workspace>set PATH=C:\Users\Admin\.jenkins\jobs\python_fIrefox_tests\workspace\ENV\Scripts;%WORKSPACE%\ENV\Scripts;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Skype\Phone\;C:\Python27\;C:\Python27\Scripts\;C:\Users\Admin\Downloads\chromedriver_win32;C:\Program Files (x86)\Mozilla Firefox;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Skype\Phone\;C:\Python27\;C:\Python27\Scripts\ 
+
+C:\Users\Admin\.jenkins\jobs\python_fIrefox_tests\workspace>pip install selenium 
+Requirement already satisfied (use --upgrade to upgrade): selenium in c:\users\admin\.jenkins\jobs\python_firefox_tests\workspace\env\lib\site-packages
+
+C:\Users\Admin\.jenkins\jobs\python_fIrefox_tests\workspace>pip install pytest 
+Requirement already satisfied (use --upgrade to upgrade): pytest in c:\users\admin\.jenkins\jobs\python_firefox_tests\workspace\env\lib\site-packages
+Requirement already satisfied (use --upgrade to upgrade): py>=1.4.29 in c:\users\admin\.jenkins\jobs\python_firefox_tests\workspace\env\lib\site-packages (from pytest)
+Requirement already satisfied (use --upgrade to upgrade): colorama in c:\users\admin\.jenkins\jobs\python_firefox_tests\workspace\env\lib\site-packages (from pytest)
+
+C:\Users\Admin\.jenkins\jobs\python_fIrefox_tests\workspace>py.test php4dvd 
+============================= test session starts =============================
+platform win32 -- Python 2.7.10, pytest-2.8.2, py-1.4.30, pluggy-0.3.1
+rootdir: C:\Users\Admin\.jenkins\jobs\python_fIrefox_tests\workspace\php4dvd, inifile: 
+collected 1 items
+
+php4dvd\test_add_user.py .
+
+========================== 1 passed in 11.88 seconds ==========================
+
+C:\Users\Admin\.jenkins\jobs\python_fIrefox_tests\workspace>exit 0 
+Finished: SUCCESS
