@@ -37,8 +37,7 @@ class Untitled(unittest.TestCase):
         if len(driver.find_elements_by_xpath("//div[@title='" + movie_name + "']")) > 0:
             driver.find_element_by_xpath("//div[@title='" + movie_name + "']").click()
             driver.find_element_by_xpath("//img[@alt='Remove']").click()
-            self.assertRegexpMatches(self.close_alert_and_get_its_text(),
-                                     r"^Are you sure you want to remove this[\s\S]$")
+            driver.switch_to_alert().accept()
         else:
             print "There is no movie with specified title: ", movie_name
 
@@ -52,19 +51,7 @@ class Untitled(unittest.TestCase):
         else:
             print "Something strange happened"
         driver.find_element_by_link_text("Log out").click()
-        self.assertRegexpMatches(self.close_alert_and_get_its_text(),
-                                 r"^Are you sure you want to log out[\s\S]$")
-
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally: self.accept_next_alert = True
+        driver.switch_to_alert().accept()
 
 if __name__ == "__main__":
     unittest.main()
