@@ -4,53 +4,22 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import *
 from selenium_fixture import app
 from user import User
-
-def login(driver, user):
-    driver.find_element_by_id("username").clear()
-    driver.find_element_by_id("username").send_keys(user.username)
-    driver.find_element_by_name("password").clear()
-    driver.find_element_by_name("password").send_keys(user.password)
-    driver.find_element_by_name("submit").click()
-
-def logout(driver):
-    driver.find_element_by_link_text("Log out").click()
-    driver.switch_to_alert().accept()
-
-def number_of_movies(driver):
-    """ Counting number of movies, taking into account that the movies
-        in the last (4th) column have class name "movie_box last", and the rest
-        have class name "movie_box" """
-    return len(driver.find_elements_by_xpath("//div[@class='movie_box']")) +\
-           len(driver.find_elements_by_xpath("//div[@class='movie_box last']"))
-
-def number_of_movies_found(driver, movie_name):
-    """ Find movies with specified name. """
-    return len(driver.find_elements_by_xpath("//div[@title='" + movie_name + "']"))
-
-def remove_first_by_name(driver, movie_name):
-    driver.find_element_by_xpath("//div[@title='" + movie_name + "']").click()
-    driver.find_element_by_xpath("//img[@alt='Remove']").click()
-    driver.switch_to_alert().accept()
-
-def clear_search(driver):
-    """ Making sure that search edit box is clear """
-    driver.find_element_by_id("q").clear()
-    driver.find_element_by_id("q").send_keys(Keys.RETURN)
+from movie import Movie
 
 def test_remove_mov(app):
-    base_url = "http://localhost"
-    app.driver.get(base_url + "/php4dvd/")
-    login(app.driver, User.Admin())
-    clear_search(app.driver)
-    number_of_movies_before = number_of_movies(app.driver)
+    app.go_to_home_page()
+    app.login(User.Admin())
+    app.clear_search()
+    number_of_movies_before = app.number_of_movies()
     movie_name = 'Movie #5'
+    movie_name = app.get_movie_name(Movie.Movie_first())
     """ If found, then delete the first one """
-    if number_of_movies_found(app.driver, movie_name) > 0:
-        remove_first_by_name(app.driver, movie_name)
+    if app.number_of_movies_found(Movie.Movie_first()) > 0:
+        app.remove_first_by_name(Movie.Movie_first())
     else:
         print "\nThere is no movie with specified title: ", movie_name
 
-    number_of_movies_after = number_of_movies(app.driver)
+    number_of_movies_after = app.number_of_movies()
 
     """ Checking if number of movies was decreased by 1 """
     if number_of_movies_after - number_of_movies_before == -1:
@@ -61,5 +30,5 @@ def test_remove_mov(app):
     else:
         print "\nSomething strange happened"
 
-    logout(app.driver)
+    app.logout()
 
