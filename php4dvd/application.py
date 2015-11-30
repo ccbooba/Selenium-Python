@@ -3,13 +3,13 @@ import time
 
 class Application(object):
 
-    def __init__(self, driver):
+    def __init__(self, driver, base_url):
         self.driver = driver
+        self.base_url = base_url
 
     def go_to_home_page(self):
         driver = self.driver
-        base_url = "http://localhost"
-        driver.get(base_url + "/php4dvd/")
+        driver.get(self.base_url)
 
     def login(self, user):
         driver = self.driver
